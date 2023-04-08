@@ -53,19 +53,6 @@ def crear_capitulo(tema, palabras_clave, max_palabras=1800):
     capitulo = generar_capitulo(prompt, max_tokens)
     return capitulo
 
-if st.button('Generar capítulo'):
-    if palabras_clave and tema_capitulo:
-        capitulo_generado = crear_capitulo(tema_capitulo, palabras_clave)
-        st.write("Capítulo generado:")
-        st.write(capitulo_generado)
-    else:
-        st.warning("Por favor, ingrese las palabras clave y escriba un tema para el capítulo.")
-
-def descargar_markdown(capitulo, nombre_archivo="capitulo_generado.md"):
-    b64 = base64.b64encode(capitulo.encode()).decode()
-    enlace = f'<a href="data:file/markdown;base64,{b64}" download="{nombre_archivo}">Descargar capítulo en formato Markdown</a>'
-    return enlace
-
 capitulo_generado = None
 
 if st.button('Generar capítulo', key='generar_capitulo'):
