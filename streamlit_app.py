@@ -28,6 +28,8 @@ left_column.warning("""
 
 palabras_clave = left_column.text_area("Ingrese 5-8 palabras clave aquí:", height=75)
 
+edad_destinatarios = st.sidebar.number_input('Edad de los destinatarios', min_value=1, max_value=100, value=18, step=1)
+
 tema_capitulo = st.text_input('Ingresa el tema del capítulo:', max_chars=500)
 
 num_fuentes = left_column.slider("Número de fuentes de Google Scholar:", min_value=1, max_value=10, value=5, step=1)
@@ -47,17 +49,20 @@ def generar_capitulo(prompt, max_tokens):
     except Exception as e:
         return str(e)
 
-def crear_capitulo(tema, palabras_clave, max_palabras=1800):
-    prompt = f"Escribe un capítulo de {max_palabras} palabras sobre {tema} utilizando palabras clave del siguiente contenido proporcionado:\n{palabras_clave}\n\n---\n\nCapítulo:\n\n"
+def crear_capitulo(tema, contenido, edad_destinatarios, max_palabras=1800):
+    prompt = f"Escribe un capítulo de {max_palabras} palabras sobre {tema} utilizando palabras clave del siguiente contenido proporcionado:\n{contenido}\n\nTen en cuenta que la edad de los destinatarios es {edad_destinatarios}.\n\n---\n\nCapítulo:\n\n"
+
     max_tokens = max_palabras * 4
-    capitulo = generar_capitulo(prompt, max_tokens)
+
+    capitulo = generar_articulo(prompt, max_tokens)
     return capitulo
+
 
 capitulo_generado = None
 
 if st.button('Generar capítulo', key='generar_capitulo'):
     if palabras_clave and tema_capitulo:
-        capitulo_generado = crear_capitulo(tema_capitulo, palabras_clave)
+        capitulo_generado = crear_capitulo(tema_capitulo, palabras_clave, edad_destinatarios)
         st.write("Capítulo generado:")
         st.write(capitulo_generado)
     else:
