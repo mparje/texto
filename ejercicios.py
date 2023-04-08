@@ -15,10 +15,11 @@ left_column = st.sidebar
 
 left_column.title("Instrucciones")
 left_column.markdown("""
-1. Escribe 5-8 palabras clave en el área de texto.
-2. Ingresa el tema del ejercicio resuelto en la caja de texto provista.
-3. Selecciona cuántas fuentes de Google Scholar quieres utilizar.
-4. Haz clic en el botón 'Generar ejercicios' para crear los ejercicios resueltos.
+1. Esta aplicación es un complemento de laa generadora de capítulos. Ponga en esta los mismos datos que en aquella.
+2. Escribe 5-8 palabras clave en el área de texto.
+3. Ingresa el tema del ejercicio resuelto en la caja de texto provista.
+4. Selecciona cuántas fuentes de Google Scholar quieres utilizar.
+5. Haz clic en el botón 'Generar ejercicios' para crear los ejercicios resueltos.
 """)
 
 left_column.warning("""
