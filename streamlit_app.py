@@ -54,7 +54,7 @@ def crear_capitulo(tema, contenido, edad_destinatarios, max_palabras=1800):
 
     max_tokens = max_palabras * 4
 
-    capitulo = generar_articulo(prompt, max_tokens)
+    capitulo = generar_capitulo(prompt, max_tokens)
     return capitulo
 
 
