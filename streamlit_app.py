@@ -69,6 +69,6 @@ def descargar_markdown(capitulo, nombre_archivo="capitulo_generado.md"):
 if capitulo_generado:
    st.markdown(descargar_markdown(capitulo_generado), unsafe_allow_html=True)
 
-    # Añadir aviso de copyright al final de la columna izquierda
-    left_column.markdown("Copyright © 2023 [ibmonograph.com](https://www.ibmonograph.com)")
+# Añadir aviso de copyright al final de la columna izquierda
+left_column.markdown("Copyright © 2023 [ibmonograph.com](https://www.ibmonograph.com)")
     
