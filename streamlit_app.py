@@ -65,10 +65,24 @@ def descargar_markdown(capitulo, nombre_archivo="capitulo_generado.md"):
     b64 = base64.b64encode(capitulo.encode()).decode()
     enlace = f'<a href="data:file/markdown;base64,{b64}" download="{nombre_archivo}">Descargar capítulo en formato Markdown</a>'
     return enlace
+  
+capitulo_generado = None
+
+if st.button('Generar capítulo'):
+    if palabras_clave and tema_capitulo:
+        capitulo_generado = crear_capitulo(tema_capitulo, palabras_clave)
+        st.write("Capítulo generado:")
+        st.write(capitulo_generado)
+    else:
+        st.warning("Por favor, ingrese las palabras clave y escriba un tema para el capítulo.")
+
+def descargar_markdown(capitulo, nombre_archivo="capitulo_generado.md"):
+    b64 = base64.b64encode(capitulo.encode()).decode()
+    enlace = f'<a href="data:file/markdown;base64,{b64}" download="{nombre_archivo}">Descargar capítulo en formato Markdown</a>'
+    return enlace
 
 if capitulo_generado:
-   st.markdown(descargar_markdown(capitulo_generado), unsafe_allow_html=True)
+    st.markdown(descargar_markdown(capitulo_generado), unsafe_allow_html=True)
 
-# Añadir aviso de copyright al final de la columna izquierda
 left_column.markdown("Copyright © 2023 [ibmonograph.com](https://www.ibmonograph.com)")
-    
+
