@@ -53,7 +53,7 @@ def generar_ejercicios(prompt, max_tokens):
 def crear_ejercicios(tema, contenido, edad_destinatarios, num_ejercicios=10):
     prompt = f"Escribe {num_ejercicios} ejercicios resueltos sobre {tema} utilizando palabras clave del siguiente contenido proporcionado:\n{contenido}\n\nTen en cuenta que la edad de los destinatarios es {edad_destinatarios}.\n\n---\n\nEjercicios resueltos:\n\n"
 
-    max_tokens = num_ejercicios * 5
+    max_tokens = num_ejercicios * 150
 
     ejercicios = generar_ejercicios(prompt, max_tokens)
     return ejercicios
