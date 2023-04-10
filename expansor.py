@@ -75,5 +75,5 @@ def descargar_markdown(seccion, nombre_archivo="seccion_expandida.md"):
 
 if seccion_expandida: st.markdown(descargar_markdown(seccion_expandida), unsafe_allow_html=True)
 
-left_column.markdown(“Copyright © 2023 ibmonograph.com”)
+left_column.markdown("Copyright © 2023 ibmonograph.com")
 
